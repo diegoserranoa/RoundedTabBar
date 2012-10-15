@@ -9,6 +9,10 @@
 #import "RoundedTabBar2ViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define TABBARHEIGHT 70
+#define WIDTH [[UIScreen mainScreen] bounds].size.width
+#define HEIGHT [[UIScreen mainScreen] bounds].size.height
+
 @interface RoundedTabBar2ViewController ()
 
 @end
@@ -18,24 +22,27 @@
 
 -(void)loadView
 {
+    
     [super loadView];
+    
+    [self.view setFrame:CGRectMake(0.0f, 0.0f, WIDTH, HEIGHT)];
     
     _tabBarController = [[UITabBarController alloc] init];
     _tabBarController.delegate = self;
     
-    CGRect viewFrame = _tabBarController.tabBar.frame;
+    CGRect viewFrame;
     //change these parameters according to you.
-    viewFrame.origin.x = -10.0;
-    viewFrame.origin.y = 390.0;
-    viewFrame.size.height = 70.0;
-    viewFrame.size.width = 340.0;
-    
+    viewFrame.origin.x = 0.0;
+    viewFrame.size.width = WIDTH;
+    viewFrame.origin.y = HEIGHT - TABBARHEIGHT;
+    viewFrame.size.height = TABBARHEIGHT;
     _tabBarController.tabBar.frame = viewFrame;
+    
     [self.navigationController.navigationBar setHidden:YES];
     
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_tabBarController.tabBar.bounds
                                                    byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight
-                                                         cornerRadii:CGSizeMake(340.0, 60.0)];
+                                                         cornerRadii:CGSizeMake(340.0, 20.0)];
     
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.frame = maskPath.bounds;
@@ -48,9 +55,9 @@
     NSMutableArray *localViewControllersArray = [[NSMutableArray alloc] initWithCapacity:5];
     
     
-    // Root view controller for "Identify Bird"
     UIViewController *vc1;
     vc1 = [self.storyboard instantiateViewControllerWithIdentifier:@"Tab1"];
+    vc1.view.backgroundColor = [UIColor redColor];
     vc1.title = @"Tab1";
     
     UIViewController *vc2;
@@ -81,6 +88,7 @@
     
     // Add subview to portrait window to reference the tabbarcontroller
     [self.view addSubview:_tabBarController.view];
+    
 }
 
 - (void)viewDidLoad

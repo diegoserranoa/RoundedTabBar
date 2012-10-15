@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E185BE9162C9F57000D40F5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E185BE8162C9F57000D40F5 /* Default-568h@2x.png */; };
 		7E647513162549C100D2069D /* Tab1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E647512162549C100D2069D /* Tab1ViewController.m */; };
 		7EB893BF15CB22F9003A65EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB893BE15CB22F9003A65EF /* UIKit.framework */; };
 		7EB893C115CB22F9003A65EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB893C015CB22F9003A65EF /* Foundation.framework */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E185BE8162C9F57000D40F5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7E647511162549C100D2069D /* Tab1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tab1ViewController.h; sourceTree = "<group>"; };
 		7E647512162549C100D2069D /* Tab1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tab1ViewController.m; sourceTree = "<group>"; };
 		7EB893BA15CB22F9003A65EF /* RoundedTabBar2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoundedTabBar2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +58,7 @@
 		7EB893AF15CB22F8003A65EF = {
 			isa = PBXGroup;
 			children = (
+				7E185BE8162C9F57000D40F5 /* Default-568h@2x.png */,
 				7EB893C415CB22F9003A65EF /* RoundedTabBar2 */,
 				7EB893BD15CB22F9003A65EF /* Frameworks */,
 				7EB893BB15CB22F9003A65EF /* Products */,
@@ -160,6 +163,7 @@
 			files = (
 				7EB893C915CB22F9003A65EF /* InfoPlist.strings in Resources */,
 				7EB893D215CB22F9003A65EF /* MainStoryboard.storyboard in Resources */,
+				7E185BE9162C9F57000D40F5 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
