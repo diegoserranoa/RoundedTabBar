@@ -9,7 +9,7 @@
 #import "RoundedTabBar2ViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define TABBARHEIGHT 70
+#define TABBARHEIGHT 50
 #define WIDTH [[UIScreen mainScreen] bounds].size.width
 #define HEIGHT [[UIScreen mainScreen] bounds].size.height
 
@@ -22,35 +22,13 @@
 
 -(void)loadView
 {
-    
     [super loadView];
     
     [self.view setFrame:CGRectMake(0.0f, 0.0f, WIDTH, HEIGHT)];
     
+    
     _tabBarController = [[UITabBarController alloc] init];
     _tabBarController.delegate = self;
-    
-    CGRect viewFrame;
-    //change these parameters according to you.
-    viewFrame.origin.x = 0.0;
-    viewFrame.size.width = WIDTH;
-    viewFrame.origin.y = HEIGHT - TABBARHEIGHT;
-    viewFrame.size.height = TABBARHEIGHT;
-    _tabBarController.tabBar.frame = viewFrame;
-    
-    [self.navigationController.navigationBar setHidden:YES];
-    
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_tabBarController.tabBar.bounds
-                                                   byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight
-                                                         cornerRadii:CGSizeMake(340.0, 20.0)];
-    
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.frame = maskPath.bounds;
-    maskLayer.path = maskPath.CGPath;
-    
-    _tabBarController.tabBar.layer.mask = maskLayer;
-    _tabBarController.tabBar.userInteractionEnabled = YES;
-    
     
     NSMutableArray *localViewControllersArray = [[NSMutableArray alloc] initWithCapacity:5];
     
@@ -85,6 +63,30 @@
     // Point the tab bar controllers view controller array to the array
     // of view controllers we just populated
     _tabBarController.viewControllers = localViewControllersArray;
+    
+    [_tabBarController.view setFrame:CGRectMake(0.0f, 0.0f, WIDTH, HEIGHT+TABBARHEIGHT)];
+    
+    
+    
+    CGRect viewFrame;
+    //change these parameters according to you.
+    viewFrame.origin.x = 0.0;
+    viewFrame.size.width = WIDTH;
+    viewFrame.origin.y = HEIGHT - TABBARHEIGHT;
+    viewFrame.size.height = TABBARHEIGHT;
+    _tabBarController.tabBar.frame = viewFrame;
+    
+    
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_tabBarController.tabBar.bounds
+                                                   byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight
+                                                         cornerRadii:CGSizeMake(340.0, 40.0)];
+    
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = maskPath.bounds;
+    maskLayer.path = maskPath.CGPath;
+    
+    _tabBarController.tabBar.layer.mask = maskLayer;
+    _tabBarController.tabBar.userInteractionEnabled = YES;
     
     // Add subview to portrait window to reference the tabbarcontroller
     [self.view addSubview:_tabBarController.view];
