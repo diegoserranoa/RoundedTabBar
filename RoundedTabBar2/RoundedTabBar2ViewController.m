@@ -67,7 +67,6 @@
     [_tabBarController.view setFrame:CGRectMake(0.0f, 0.0f, WIDTH, HEIGHT+TABBARHEIGHT)];
     
     
-    
     CGRect viewFrame;
     //change these parameters according to you.
     viewFrame.origin.x = 0.0;
@@ -87,6 +86,7 @@
     
     _tabBarController.tabBar.layer.mask = maskLayer;
     _tabBarController.tabBar.userInteractionEnabled = YES;
+    
     
     // Add subview to portrait window to reference the tabbarcontroller
     [self.view addSubview:_tabBarController.view];
